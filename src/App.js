@@ -8,7 +8,6 @@ import Forms from "./component/Forms/Forms";
 function App(props) {
   return (
     <div className="App">
-        <header className="App-header"> </header>
         <div className="main">
             <Info/>
             <Forms addWeather={props.addWeather}/>
