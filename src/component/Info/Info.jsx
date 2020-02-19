@@ -1,9 +1,10 @@
 import React from 'react';
+import s from './Info.module.css'
 
 class Info extends React.Component{
      render() {
          return(
-             <div>
+             <div className={s.info}>
                   <h2>Погодное приложение</h2>
                   <p>Узнайте погоду в вашем городе.</p>
              </div>

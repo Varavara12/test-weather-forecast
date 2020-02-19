@@ -1,0 +1,8 @@
+.info{
+    color: #fff;
+    position: relative;
+}
+
+.info h2, p{
+    text-align: center;
+}
