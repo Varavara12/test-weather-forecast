@@ -1,27 +1,29 @@
 import React from 'react';
 import App from "./App";
+import * as axios from 'axios'
+import {connect} from "react-redux";
+import {setWeatherPage} from "./redux/weatherReducer";
 const openWeatherApiKey = 'c792484ade42380886f51003cfcaf04d';
 
 class AppContainer extends React.Component {
-    state = {
-        city: null,
-        country: null,
-        temp: null,
-        speed: null,
-        sunrise: null,
-        sunset: null,
-        error: null
-    };
+   
+
+    componentDidMount() {
+        axios.get(`https://api.openweathermap.org/data/2.5/weather?q=Kharkiv,ua&units=metric&mode=json&appid=${openWeatherApiKey}`)
+            .then(response => {
+                this.props.setWeatherPage(response.data)
+            })
+    }
 
     addWeather = async (event) => {
         event.preventDefault();
         const city = event.target.elements.city.value;
 
-        if (city) {
-            const weatherApiLink = await
+        /*if (city) {
+            /!*const weatherApiLink = await
                 fetch(`https://api.openweathermap.org/data/2.5/weather?q=${city}&units=metric&mode=json&appid=${openWeatherApiKey}`)
             const dataJson = await weatherApiLink.json();
-            console.log(dataJson)
+            console.log(dataJson)*!/
 
             let sunset = dataJson.sys.sunset;
             let date = new Date();
@@ -53,14 +55,18 @@ class AppContainer extends React.Component {
                 sunset: null,
                 error: "Введите название города"
             })
-        }
+        }*/
     };
 
     render() {
         return (
-            <App addWeather={this.addWeather} state={this.state}/>
+            <App addWeather={this.addWeather} weather={this.props.weather}/>
         )
     }
 }
 
-export default AppContainer
+let mapStateToProps = (state) => ({
+    weather: state.weatherPage.weather
+});
+
+export default connect (mapStateToProps, {setWeatherPage}) (AppContainer)

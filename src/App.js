@@ -11,7 +11,7 @@ function App(props) {
         <div className="main">
             <Info/>
             <Forms addWeather={props.addWeather}/>
-            <Forecast state={props.state}/>
+            <Forecast weather={props.weather}/>
         </div>
     </div>
   );

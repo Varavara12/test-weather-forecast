@@ -3,19 +3,24 @@ import s from "./Forecast.module.css"
 
 
 function Forecast(props) {
+    if(!props.weather){
+        return <div>Загрузка...</div>
+    }
+    debugger
     return (
+
         <div>
-            {props.state.city &&
+            {props.weather.name &&
             <div className={s.forecast}>
-                <p>Местоположение: {props.state.city}, Страна {props.state.country}</p>
-                <p>Температера: {props.state.temp} градусов по Цельсия</p>
-                <p>Скорость ветра: {props.state.speed} м.с</p>
-                <p>Давление: {props.state.pressure} мм рт. ст.</p>
-                <p>Восход солнца: {props.state.sunrise}</p>
-                <p>Закат солнца: {props.state.sunset}</p>
+                <p>Местоположение: {props.weather.name}, Страна {props.weather.sys.country}</p>
+                <p>Температера: {props.weather.main.temp} градусов по Цельсия</p>
+                <p>Скорость ветра: {props.weather.wind.speed} м.с</p>
+                <p>Давление: {props.weather.main.pressure} мм рт. ст.</p>
+                <p>Восход солнца: {props.weather.sys.sunrise}</p>
+                <p>Закат солнца: {props.weather.sys.sunset}</p>
             </div>
             }
-            <p>{props.state.error}</p>
+            
         </div>
     );
 }
