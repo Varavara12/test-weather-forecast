@@ -2,11 +2,12 @@ import React from 'react';
 import s from "./Forecast.module.css"
 
 
-function Forecast(props) {
+const Forecast = (props) => {
     if(!props.weather){
-        return <div>Загрузка...</div>
+        return <div> </div>
     }
-    debugger
+    
+
     return (
 
         <div>

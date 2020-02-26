@@ -2,7 +2,8 @@ import React from 'react';
 import './App.css';
 import Info from "./component/Info/Info";
 import Forecast from "./component/Forecast/Forecast";
-import Forms from "./component/Forms/Forms";
+import WeatherReduxForm from "./component/Forms/Forms";
+
 
 
 function App(props) {
@@ -10,7 +11,7 @@ function App(props) {
     <div className="App">
         <div className="main">
             <Info/>
-            <Forms addWeather={props.addWeather}/>
+            <WeatherReduxForm onSubmit={props.onSubmit}/>
             <Forecast weather={props.weather}/>
         </div>
     </div>
