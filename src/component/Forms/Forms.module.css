@@ -27,4 +27,9 @@
     border: 1px solid transparent;
     border-radius: 4px;
     margin-left: 10px;
+    height: 36px
+}
+
+.form_pos{
+    display: flex;
 }

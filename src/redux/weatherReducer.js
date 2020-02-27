@@ -1,4 +1,4 @@
-import {weatherAPI} from "../component/api/api";
+import {weatherAPI} from "../api/api";
 
 const SET_WEATHER = 'SET_WEATHER';
 

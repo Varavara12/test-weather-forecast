@@ -1,12 +1,14 @@
 import React from 'react';
 import s from './Forms.module.css'
 import {Field, reduxForm} from "redux-form";
+import {required} from "../../utils/validators/validators";
+import {FormsControls} from "../common/FormsControls/FormsControls";
 
 const Forms =(props) => {
     return (
         <div className={s.form}>
-            <form onSubmit={props.handleSubmit}>
-                <Field component={"input"} type={"text"} name={"city"} placeholder={"Выберите город"}/>
+            <form className={s.form_pos} onSubmit={props.handleSubmit}>
+                <Field component={FormsControls} type={"text"} validate={[required]} name={"city"} placeholder={"Выберите город"}/>
                 <button>Получить</button>
             </form>
         </div>

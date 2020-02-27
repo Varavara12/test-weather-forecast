@@ -7,6 +7,7 @@ import {getWeatherThunk} from "./redux/weatherReducer";
 class AppContainer extends React.Component {
 
     onSubmit = (city) => {
+
         this.props.getWeatherThunk(city)
     };
 
